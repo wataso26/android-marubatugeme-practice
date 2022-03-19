@@ -1,19 +1,29 @@
 package app.wataso_.watanabe.marubatu_game
 
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
+import android.widget.TextView
 import android.widget.Toast
+import app.wataso_.watanabe.marubatu_game.databinding.ActivityMainBinding
 import java.util.*
 import kotlin.collections.ArrayList
 
 class MainActivity : AppCompatActivity() {
+
+    //バインディングクラスの変数
+    private lateinit var binding : ActivityMainBinding
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        //setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater).apply { setContentView(this.root) }
     }
 
-    fun buClick(view: view){
+    fun buClick(view: View){
         val buSelected = view as Button
 
         var cellId =0
@@ -41,7 +51,9 @@ class MainActivity : AppCompatActivity() {
         if (activityPlayer ==1){
             buSelected.text="X"
             buSelected.setBackgroundResource(R.color.blue)
+
             player1.add(cellId)
+            activityPlayer = 2
             autoPlay()
         }else{
             buSelected.text ="0"
@@ -150,19 +162,28 @@ class MainActivity : AppCompatActivity() {
         val r = Random()
         val randIndex =r.nextInt(emptyCells.size)
         val cellId = emptyCells[randIndex]
+//        val bu1 =findViewById<Button>(R.id.bu1)
+//        val bu2 =findViewById<Button>(R.id.bu2)
+//        val bu3 =findViewById<Button>(R.id.bu3)
+//        val bu4 =findViewById<Button>(R.id.bu4)
+//        val bu5 =findViewById<Button>(R.id.bu5)
+//        val bu6 =findViewById<Button>(R.id.bu6)
+//        val bu7 =findViewById<Button>(R.id.bu7)
+//        val bu8 =findViewById<Button>(R.id.bu8)
+//        val bu9 =findViewById<Button>(R.id.bu9)
 
         var buSelected:Button?
         buSelected =when(cellId){
-            1 -> bu1
-            2 -> bu2
-            3 -> bu3
-            4 -> bu4
-            5 -> bu5
-            6 -> bu6
-            7 -> bu7
-            8 -> bu8
-            9 -> bu9
-            else -> {bu1}
+            1 -> binding.bu1
+            2 -> binding.bu2
+            3 -> binding.bu3
+            4 -> binding.bu4
+            5 -> binding.bu5
+            6 -> binding.bu6
+            7 -> binding.bu7
+            8 -> binding.bu8
+            9 -> binding.bu9
+            else -> {binding.bu1}
         }
         playGame(cellId,buSelected)
     }
@@ -173,20 +194,29 @@ class MainActivity : AppCompatActivity() {
         activityPlayer =1
         player1.clear()
         player2.clear()
+//        val bu1 =findViewById<Button>(R.id.bu1)
+//        val bu2 =findViewById<Button>(R.id.bu2)
+//        val bu3 =findViewById<Button>(R.id.bu3)
+//        val bu4 =findViewById<Button>(R.id.bu4)
+//        val bu5 =findViewById<Button>(R.id.bu5)
+//        val bu6 =findViewById<Button>(R.id.bu6)
+//        val bu7 =findViewById<Button>(R.id.bu7)
+//        val bu8 =findViewById<Button>(R.id.bu8)
+//        val bu9 =findViewById<Button>(R.id.bu9)
 
         for(index in 1..9){
            val buSelected:Button
            buSelected =when(index){
-               1 -> bu1
-               2 -> bu2
-               3 -> bu3
-               4 -> bu4
-               5 -> bu5
-               6 -> bu6
-               7 -> bu7
-               8 -> bu8
-               9 -> bu9
-               else -> {bu1}
+               1 -> binding.bu1
+               2 -> binding.bu2
+               3 -> binding.bu3
+               4 -> binding.bu4
+               5 -> binding.bu5
+               6 -> binding.bu6
+               7 -> binding.bu7
+               8 -> binding.bu8
+               9 -> binding.bu9
+               else -> {binding.bu1}
            }
             buSelected!!.text=""
             buSelected!!.setBackgroundResource(R.color.whiteBu)

@@ -1,106 +1,131 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/whiteColorBackground"
-    android:gravity="center"
-    tools:context=".MainActivity">
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <TableRow
+    <TableLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="32dp"
+        android:background="@color/whiteColorBackground"
         android:gravity="center"
-        android:layout_marginTop="3px">
+        app:layout_constraintTop_toTopOf="parent"
+        tools:context=".MainActivity">
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/bu1"
-            android:layout_width="40pt"
-            android:layout_height="40pt"
-            android:layout_marginLeft="3pt"
-            android:background="@color/whiteBu"
-            android:onClick="buClick" />
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="3px"
+            android:gravity="center">
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/bu2"
-            android:layout_width="40pt"
-            android:layout_height="40pt"
-            android:layout_marginLeft="3pt"
-            android:background="@color/whiteBu"
-            android:onClick="buClick" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/bu1"
+                android:layout_width="50pt"
+                android:layout_height="50pt"
+                android:layout_marginLeft="3pt"
+                android:background="@color/whiteBu"
+                android:onClick="buClick" />
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/bu3"
-            android:layout_width="40pt"
-            android:layout_height="40pt"
-            android:layout_marginLeft="3pt"
-            android:background="@color/whiteBu"
-            android:onClick="buClick" />
-        //onClick　関数名で動作を指定することが出来る。
-    </TableRow>
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/bu2"
+                android:layout_width="50pt"
+                android:layout_height="50pt"
+                android:layout_marginLeft="3pt"
+                android:background="@color/whiteBu"
+                android:onClick="buClick" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/bu3"
+                android:layout_width="50pt"
+                android:layout_height="50pt"
+                android:layout_marginLeft="3pt"
+                android:background="@color/whiteBu"
+                android:onClick="buClick" />
+
+            //onClick　関数名で動作を指定することが出来る。
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/bu4"
+                android:layout_width="50pt"
+                android:layout_height="50pt"
+                android:layout_marginLeft="3pt"
+                android:background="@color/whiteBu"
+                android:onClick="buClick" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/bu5"
+                android:layout_width="50pt"
+                android:layout_height="50pt"
+                android:layout_marginLeft="3pt"
+                android:background="@color/whiteBu"
+                android:onClick="buClick" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/bu6"
+                android:layout_width="50pt"
+                android:layout_height="50pt"
+                android:layout_marginLeft="3pt"
+                android:background="@color/whiteBu"
+                android:onClick="buClick" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/bu7"
+                android:layout_width="50pt"
+                android:layout_height="50pt"
+                android:layout_marginLeft="3pt"
+                android:background="@color/whiteBu"
+                android:onClick="buClick" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/bu8"
+                android:layout_width="50pt"
+                android:layout_height="50pt"
+                android:layout_marginLeft="3pt"
+                android:background="@color/whiteBu"
+                android:onClick="buClick" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/bu9"
+                android:layout_width="50pt"
+                android:layout_height="50pt"
+                android:layout_marginLeft="3pt"
+                android:background="@color/whiteBu"
+                android:onClick="buClick" />
 
 
-    <TableRow
+        </TableRow>
+
+
+    </TableLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:layout_marginTop="3px">
+        android:layout_height="match_parent">
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/bu4"
-            android:layout_width="40pt"
-            android:layout_height="40pt"
-            android:layout_marginLeft="3pt"
-            android:background="@color/whiteBu"
-            android:onClick="buClick" />
+        <Button
+            android:id="@+id/restart_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="32dp"
+            android:text="Restart"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/bu5"
-            android:layout_width="40pt"
-            android:layout_height="40pt"
-            android:layout_marginLeft="3pt"
-            android:background="@color/whiteBu"
-            android:onClick="buClick" />
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/bu6"
-            android:layout_width="40pt"
-            android:layout_height="40pt"
-            android:layout_marginLeft="3pt"
-            android:background="@color/whiteBu"
-            android:onClick="buClick" />
-    </TableRow>
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:layout_marginTop="3px">
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/bu7"
-            android:layout_width="40pt"
-            android:layout_height="40pt"
-            android:layout_marginLeft="3pt"
-            android:background="@color/whiteBu"
-            android:onClick="buClick" />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/bu8"
-            android:layout_width="40pt"
-            android:layout_height="40pt"
-            android:layout_marginLeft="3pt"
-            android:background="@color/whiteBu"
-            android:onClick="buClick" />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/bu9"
-            android:layout_width="40pt"
-            android:layout_height="40pt"
-            android:layout_marginLeft="3pt"
-            android:background="@color/whiteBu"
-            android:onClick="buClick" />
-    </TableRow>
-
-</TableLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

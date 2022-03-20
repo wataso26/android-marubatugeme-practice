@@ -3,10 +3,12 @@ package app.wataso_.watanabe.marubatu_game
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.view.isVisible
 import app.wataso_.watanabe.marubatu_game.databinding.ActivityMainBinding
 import java.util.*
 import kotlin.collections.ArrayList
@@ -21,7 +23,15 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         //setContentView(R.layout.activity_main)
         binding = ActivityMainBinding.inflate(layoutInflater).apply { setContentView(this.root) }
+
+        binding.restartButton.isVisible=false
+        binding.restartButton.setOnClickListener {
+            restartGame()
+            binding.restartButton.isVisible=false
+        }
     }
+
+
 
     fun buClick(view: View){
         val buSelected = view as Button
@@ -40,6 +50,7 @@ class MainActivity : AppCompatActivity() {
             R.id.bu9 -> cellId = 9
 
         }
+        Log.d("buClick", "クリックされている？")
         playGame(cellId,buSelected)
     }
     var activityPlayer =1
@@ -50,8 +61,9 @@ class MainActivity : AppCompatActivity() {
     fun playGame(cellId:Int,buSelected:Button){
         if (activityPlayer ==1){
             buSelected.text="X"
-            buSelected.setBackgroundResource(R.color.blue)
-
+            //buSelected.setBackgroundResource(R.color.blue)
+            buSelected.setBackgroundResource(R.drawable.batuimage)
+            Log.d("playGame","自分のターン")
             player1.add(cellId)
             activityPlayer = 2
             autoPlay()
@@ -60,10 +72,12 @@ class MainActivity : AppCompatActivity() {
             buSelected.setBackgroundResource(R.color.darkGreen)
             player2.add(cellId)
             activityPlayer = 1
+            Log.d("playGame","相手のターン")
+            checkWinner()
         }
         buSelected.isEnabled = false
 
-        checkWinner()
+
     }
     fun checkWinner(){
         var winner = -1
@@ -135,19 +149,27 @@ class MainActivity : AppCompatActivity() {
         if(player2.contains(3) && player2.contains(5) && player2.contains(7)){
             winner = 2
         }
+        //何も
 
         if(winner ==1){
             player1WinnerCount += 1
-            Toast.makeText(this,"Player 1 win the game",Toast.LENGTH_LONG).show()
-            restartGame()
+            Toast.makeText(this,"Player 1 win the game",Toast.LENGTH_SHORT).show()
+            binding.restartButton.isVisible=true
+            buttonBehind()
+
+            //restartGame()
         }else if(winner==2){
             player2WinnerCount += 1
-            Toast.makeText(this, "Player 2 win the game", Toast.LENGTH_LONG).show()
-            restartGame()
+            Toast.makeText(this, "Player 2 win the game", Toast.LENGTH_SHORT).show()
+            binding.restartButton.isVisible=true
+            buttonBehind()
+
+            //restartGame()
 
         }
 
     }
+
     fun autoPlay(){
         var emptyCells =ArrayList<Int>()
 
@@ -187,6 +209,8 @@ class MainActivity : AppCompatActivity() {
         }
         playGame(cellId,buSelected)
     }
+
+
     var player1WinnerCount =0
     var player2WinnerCount =0
 
@@ -222,7 +246,21 @@ class MainActivity : AppCompatActivity() {
             buSelected!!.setBackgroundResource(R.color.whiteBu)
             buSelected!!.isEnabled =true
         }
-        Toast.makeText(this,"Player1: $player1WinnerCount ,Player2: $player2WinnerCount", Toast.LENGTH_LONG).show()
+        Toast.makeText(this,"Player1: $player1WinnerCount ,Player2: $player2WinnerCount", Toast.LENGTH_SHORT).show()
+    }
+    fun buttonBehind(){
+        binding.bu1.isEnabled =false
+        binding.bu2.isEnabled =false
+        binding.bu3.isEnabled =false
+        binding.bu4.isEnabled =false
+        binding.bu5.isEnabled =false
+        binding.bu6.isEnabled =false
+        binding.bu7.isEnabled =false
+        binding.bu8.isEnabled =false
+        binding.bu9.isEnabled =false
+
+
+
     }
 
 }
